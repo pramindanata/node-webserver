@@ -1,6 +1,9 @@
 const express = require('express');
+const hbs = require('hbs');
 
 let app = express();
+
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello express</h1>');
@@ -19,4 +22,6 @@ app.get('/bad', (req, res) => {
     })
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log("Listening to port 3000.");
+});
