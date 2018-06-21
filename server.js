@@ -3,10 +3,22 @@ const hbs = require('hbs');
 
 let app = express();
 
+app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello express</h1>');
+    res.render('home.hbs', {
+        title: 'Home',
+        content: 'Hello...',
+        curYear: new Date().getFullYear(),
+    });
+});
+
+app.get('/about', (req, res) => {
+    res.render('about.hbs', {
+        title: 'About',
+        curYear: new Date().getFullYear(),
+    });
 });
 
 app.get('/json', (req, res) => {
