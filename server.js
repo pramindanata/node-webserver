@@ -44,6 +44,12 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/project', (req, res) => {
+    res.render('project.hbs', {
+        title: 'Portofolio',
+    });
+});
+
 app.get('/json', (req, res) => {
     res.send({
         name: "Eksa Pramindanata",
